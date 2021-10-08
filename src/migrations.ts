@@ -27,6 +27,28 @@ const createTables = () =>
         data_final DATE NOT NULL,
         modulo INT NOT NULL
      );
+
+    CREATE TABLE teatcher_class(
+      class_id INT,
+      teacher_id INT,
+      FOREIGN KEY(class_id) REFERENCES class (id),
+      FOREIGN KEY (teacher_id) REFERENCES teacher(id)
+    );
+    
+    SELECT * FROM teatcher_class
+    JOIN class ON class_id = class.id
+    JOIN teacher ON teacher_id = teacher.id;
+    
+    CREATE TABLE student_class(
+      class_id INT,
+      student_id INT,
+      FOREIGN KEY(class_id) REFERENCES class (id),
+      FOREIGN KEY (student_id) REFERENCES student(id)
+    );
+    
+    SELECT * FROM student_class
+    JOIN class ON class_id = class.id
+    JOIN student ON student_id = student.id;
    `
     )
     .then(() => {
