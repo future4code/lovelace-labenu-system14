@@ -2,6 +2,8 @@ import app from "./app";
 import createStudent from "./endpoints/createStudent";
 import createTeacher from "./endpoints/createTeacher";
 import createClass from "./endpoints/createClass";
+import AddTeacher from "./endpoints/AddTeacher";
+import addStudents from "./endpoints/addStudents";
 
 // CRIAR ALUNO
 app.post("/students", createStudent);
@@ -9,3 +11,10 @@ app.post("/students", createStudent);
 app.post("/teachers", createTeacher);
 // CRIAR TURMA
 app.post("/classes", createClass);
+
+// ADICIONAR PROFESSOR NA TURMA
+app.put("/teachers",AddTeacher)
+
+//ADICONAR ALUNO NA Turma
+app.put("/students",addStudents)
+
